@@ -43,7 +43,7 @@ defmodule Rumbl.MixProject do
       {:jason, "~> 1.0"},
       {:cowboy, "~> 1.0"},
       {:comeonin, "~> 4.1"},
-      {:pbkdf2_elixir, "~> 0.12"},
+      {:pbkdf2_elixir, "~> 0.12"}
     ]
   end
 
