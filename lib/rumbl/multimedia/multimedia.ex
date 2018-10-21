@@ -108,6 +108,8 @@ defmodule Rumbl.Multimedia do
   end
 
   ##########################################################
+  # USERS RELATED APIs
+   
   def list_user_videos(%Accounts.User{} = user) do
     Video
     |> user_videos_query(user)
@@ -132,5 +134,20 @@ defmodule Rumbl.Multimedia do
 
   defp preload_user(video_or_videos) do
     Repo.preload(video_or_videos, :user)
+  end
+
+  ##########################################################
+  # CATEGORIES APIs
+
+  alias Rumbl.Multimedia.Category
+
+  def create_category(name) do
+    Repo.get_by(Category, name: name) || Repo.insert!(%Category{name: name})
+  end
+
+  def list_alphabetical_categories do
+    Category
+    |> Category.alphabetical()
+    |> Repo.all()
   end
 end
