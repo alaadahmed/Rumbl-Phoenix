@@ -10,7 +10,6 @@ defmodule RumblWeb.VideoController do
     assign(conn, :categories, Multimedia.list_alphabetical_categories())
   end
 
-
   def action(conn, _) do
     args = [conn, conn.params, conn.assigns.current_user]
     apply(__MODULE__, action_name(conn), args)

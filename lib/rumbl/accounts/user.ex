@@ -5,9 +5,9 @@ defmodule Rumbl.Accounts.User do
   alias Rumbl.Accounts.Credential
 
   schema "users" do
-    field :name, :string
-    field :username, :string
-    has_one :credential, Credential
+    field(:name, :string)
+    field(:username, :string)
+    has_one(:credential, Credential)
 
     timestamps()
   end
@@ -16,7 +16,7 @@ defmodule Rumbl.Accounts.User do
     user
     |> cast(attrs, [:name, :username])
     |> validate_required([:name, :username])
-    |> validate_length(:username, min: 3, max: 15)
+    |> validate_length(:username, min: 3, max: 20)
     |> unique_constraint(:username)
   end
 

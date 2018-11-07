@@ -21,6 +21,9 @@ defmodule RumblWeb.ConnCase do
       use Phoenix.ConnTest
       alias RumblWeb.Router.Helpers, as: Routes
 
+      # To be able to use our factory helpers `user_fixture()`, `video_fixture()`
+      import Rumbl.TestHelpers
+
       # The default endpoint for testing
       @endpoint RumblWeb.Endpoint
     end

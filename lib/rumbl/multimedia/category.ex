@@ -4,7 +4,7 @@ defmodule Rumbl.Multimedia.Category do
   import Ecto.Query
 
   schema "categories" do
-    field :name, :string
+    field(:name, :string)
 
     timestamps()
   end
@@ -17,6 +17,6 @@ defmodule Rumbl.Multimedia.Category do
   end
 
   def alphabetical(query) do
-    from c in query, order_by: c.name
+    from(c in query, order_by: c.name)
   end
 end
