@@ -3,7 +3,7 @@ defmodule Rumbl.Repo.Migrations.AddSlugToVideos do
 
   def change do
     alter table(:videos) do
-      add :slug, :string
+      add(:slug, :string)
     end
   end
 end

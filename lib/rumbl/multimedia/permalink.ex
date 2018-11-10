@@ -18,7 +18,7 @@ defmodule Rumbl.Multimedia.Permalink do
     :error
   end
 
-  def dump(integer) when is_integer(integer) do 
+  def dump(integer) when is_integer(integer) do
     {:ok, integer}
   end
 

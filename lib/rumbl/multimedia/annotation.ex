@@ -2,13 +2,12 @@ defmodule Rumbl.Multimedia.Annotation do
   use Ecto.Schema
   import Ecto.Changeset
 
-
   schema "annotations" do
-    field :at, :integer
-    field :body, :string
+    field(:at, :integer)
+    field(:body, :string)
 
-    belongs_to :user, Rumbl.Accounts.User
-    belongs_to :video, Rumbl.Multimedia.Video
+    belongs_to(:user, Rumbl.Accounts.User)
+    belongs_to(:video, Rumbl.Multimedia.Video)
 
     timestamps()
   end

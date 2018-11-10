@@ -10,7 +10,7 @@ defmodule Rumbl.InfoSys.Supervisor do
   def init(_opts) do
     children = [
       InfoSys.Cache,
-      {Task.Supervisor, name: InfoSys.TaskSupervisor},
+      {Task.Supervisor, name: InfoSys.TaskSupervisor}
     ]
 
     Supervisor.init(children, strategy: :rest_for_one)

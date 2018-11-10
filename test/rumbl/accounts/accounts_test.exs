@@ -42,7 +42,10 @@ defmodule Rumbl.AccountsTest do
     test "requires password to be at least 6 chars long" do
       attrs = put_in(@valid_attrs, [:credential, :password], "12345")
       {:error, changeset} = Accounts.register_user(attrs)
-      assert %{password: ["should be at least 6 character(s)"]} = errors_on(changeset)[:credential]
+
+      assert %{password: ["should be at least 6 character(s)"]} =
+               errors_on(changeset)[:credential]
+
       assert Accounts.list_users() == []
     end
   end
@@ -56,18 +59,16 @@ defmodule Rumbl.AccountsTest do
     end
 
     test "returns user with correct password", %{user: %User{id: id}} do
-      assert {:ok, %User{id: ^id}} = 
-        Accounts.authenticate_by_email_and_pass(@email, @pass)
+      assert {:ok, %User{id: ^id}} = Accounts.authenticate_by_email_and_pass(@email, @pass)
     end
 
     test "returns unauthorized error with invalid password" do
-      assert {:error, :unauthorized} = 
-        Accounts.authenticate_by_email_and_pass(@email, "badpass")
+      assert {:error, :unauthorized} = Accounts.authenticate_by_email_and_pass(@email, "badpass")
     end
 
     test "return not found error with no matching user for email" do
-      assert {:error, :not_found} = 
-        Accounts.authenticate_by_email_and_pass("bademail@localhost", @pass)
+      assert {:error, :not_found} =
+               Accounts.authenticate_by_email_and_pass("bademail@localhost", @pass)
     end
   end
 end

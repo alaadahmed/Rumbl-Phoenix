@@ -6,6 +6,7 @@ defmodule Rumbl.TestHelpers do
 
   def user_fixture(attrs \\ %{}) do
     username = "user#{System.unique_integer([:positive])}"
+
     {:ok, user} =
       attrs
       |> Enum.into(%{
@@ -17,6 +18,7 @@ defmodule Rumbl.TestHelpers do
         }
       })
       |> Accounts.register_user()
+
     user
   end
 
